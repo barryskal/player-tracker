@@ -1,0 +1,35 @@
+.playerRow {
+  border-bottom: 1px solid #dbdbdb; }
+
+.playerInput {
+  font-family: sans-serif;
+  padding: 8px 0;
+  font-size: 18px;
+  display: flex;
+  align-items: center; }
+  .playerInput label {
+    margin-right: 8px;
+    flex-grow: 0;
+    flex-basis: 30px; }
+  .playerInput input {
+    border: 1px solid #dbdbdb;
+    font-size: 20px;
+    flex-grow: 1;
+    outline: none;
+    padding: 4px 8px;
+    padding-right: 0; }
+  .playerInput.hidden {
+    display: none; }
+
+.addPlayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 22px;
+  border: 2px dashed #dbdbdb;
+  color: #818181;
+  margin-top: 8px;
+  cursor: pointer; }
+  .addPlayer.hidden {
+    display: none; }

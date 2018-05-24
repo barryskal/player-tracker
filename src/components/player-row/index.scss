@@ -1,0 +1,33 @@
+.playerRow {
+  font-family: sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  &.selected {
+    background-color: #e2e2e2;
+  }
+
+  .playerName {
+    font-size: 20px;
+    flex-grow: 1;
+
+    input {
+      font-size: inherit;
+      border: 1px solid #dbdbdb;
+    }
+  }
+
+  .timeDisplay {
+    flex-grow: 0;
+    flex-basis: 54px;
+  }
+
+  .deleteButton {
+    background-color: red;
+    padding: 8px;
+    font-size: 16px;
+  }
+}

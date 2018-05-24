@@ -1,0 +1,32 @@
+.confirmModalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .confirmModalContainer.hidden {
+    display: none; }
+  .confirmModalContainer .confirmModal {
+    font-family: sans-serif;
+    border: 1px solid #dbdbdb;
+    padding: 8px;
+    margin: 0 8px;
+    background-color: white; }
+    .confirmModalContainer .confirmModal h1 {
+      text-align: center;
+      font-size: 22px; }
+    .confirmModalContainer .confirmModal .controls {
+      display: flex; }
+      .confirmModalContainer .confirmModal .controls > div {
+        width: 100%; }
+        .confirmModalContainer .confirmModal .controls > div:first-child {
+          margin-right: 16px; }
+      .confirmModalContainer .confirmModal .controls button {
+        width: 100%;
+        font-size: 22px; }
+      .confirmModalContainer .confirmModal .controls .confirm {
+        background-color: #00e400; }
+      .confirmModalContainer .confirmModal .controls .cancel {
+        background-color: red; }

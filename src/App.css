@@ -1,0 +1,47 @@
+.hidden {
+  display: none !important; }
+
+.App {
+  font-family: sans-serif; }
+  .App .container {
+    padding: 0 4px; }
+
+.header {
+  text-align: center;
+  background-color: #222;
+  padding: 16px;
+  font-size: 24px;
+  color: white; }
+
+.controls {
+  display: flex;
+  width: 100%;
+  margin: 8px 0; }
+  .controls > div {
+    flex-grow: 1; }
+    .controls > div:first-child {
+      margin-right: 8px; }
+    .controls > div:last-child {
+      text-align: right; }
+  .controls .button {
+    font-size: 18px; }
+  .controls .editButton {
+    text-align: left;
+    padding-left: 0; }
+  .controls .startButton {
+    text-align: right;
+    padding-right: 0; }
+
+.gameTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dbdbdb; }
+
+.resetButton {
+  background-color: red;
+  width: 100%;
+  margin-top: 32px;
+  font-size: 18px;
+  padding: 8px 0;
+  outline: none; }

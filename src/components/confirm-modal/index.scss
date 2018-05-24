@@ -1,0 +1,49 @@
+.confirmModalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &.hidden {
+    display: none;
+  }
+
+  .confirmModal {
+    font-family: sans-serif;
+    border: 1px solid #dbdbdb;
+    padding: 8px;
+    margin: 0 8px;
+    background-color: white;
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .controls {
+      display: flex;
+      & > div {
+        width: 100%;
+
+        &:first-child {
+          margin-right: 16px;
+        }
+      }
+
+      button {
+        width: 100%;
+        font-size: 22px;
+      }
+
+      .confirm {
+        background-color: #00e400;
+      }
+
+      .cancel {
+        background-color: red;
+      }
+    }
+  }
+}
