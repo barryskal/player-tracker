@@ -2,50 +2,50 @@ import React from "react";
 import "./index.css";
 import TimeDisplay from "../time-display";
 import cx from "classnames";
+import { observer } from "mobx-react";
 
-const PlayerRow = ({
-  id,
-  name,
-  selectPlayer,
-  active,
-  editMode = false,
-  updatePlayer,
-  deletePlayer,
-  ...timeDetails
-}) => {
+const PlayerRow = ({ player, editMode = false, deletePlayer, rank }) => {
   const selectHandler = () => {
     if (!editMode) {
-      selectPlayer(id);
+      player.toggleActive();
     }
   };
 
   const handleKeyPress = e => {
     if (e.key === "Enter") {
-      updatePlayer(id, e.target.value);
+      player.name = e.target.value;
     }
   };
 
   return (
     <div
-      className={cx("playerRow", { selected: !editMode && active })}
+      className={cx("playerRow", { selected: !editMode && player.active })}
       onClick={selectHandler}
     >
       <div className={"playerName"}>
         {editMode ? (
-          <input type="text" onKeyPress={handleKeyPress} defaultValue={name} />
+          <input
+            type="text"
+            onKeyPress={handleKeyPress}
+            defaultValue={player.name}
+          />
         ) : (
-          name
+          player.name
         )}
       </div>
       {editMode ? (
-        <button className="deleteButton" onClick={() => deletePlayer(id)}>
+        <button className="deleteButton" onClick={deletePlayer}>
           Delete
         </button>
       ) : (
-        <TimeDisplay className={"timeDisplay"} {...timeDetails} />
+        <TimeDisplay
+          className={"timeDisplay"}
+          seconds={player.seconds}
+          rank={rank}
+        />
       )}
     </div>
   );
 };
 
-export default PlayerRow;
+export default observer(PlayerRow);

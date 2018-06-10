@@ -21,11 +21,13 @@ const timeRanker = players => {
   }
 
   const maxRank = ranks[sortedTimes[sortedTimes.length - 1]];
-  const cloned = JSON.parse(JSON.stringify(players));
 
-  return cloned.map(p => {
-    const rank = ranks[p.seconds];
-    return Object.assign(p, { rank: rank === 0 ? rank : rank / maxRank });
+  return players.map(player => {
+    const rank = ranks[player.seconds];
+    return {
+      rank: rank === 0 ? rank : rank / maxRank,
+      player
+    };
   });
 };
 

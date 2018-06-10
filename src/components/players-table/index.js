@@ -2,6 +2,8 @@ import React from "react";
 import "./index.css";
 import PlayerRow from "../player-row";
 import cx from "classnames";
+import { observer } from "mobx-react";
+import timeRanker from "../../time-ranker";
 
 class PlayersTable extends React.Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class PlayersTable extends React.Component {
 
   _handleKeyPress = e => {
     if (e.key === "Enter") {
-      this.props.addPlayer(e.target.value);
+      this.props.teamStore.addPlayer(e.target.value);
       e.target.value = "";
       this.setState({ showAdd: true });
     }
@@ -24,17 +26,19 @@ class PlayersTable extends React.Component {
   render() {
     return (
       <div className={"playersTable"}>
-        {this.props.players.map(player => (
-          <div key={player.id} className={"playerRow"}>
-            <PlayerRow
-              {...player}
-              selectPlayer={this.props.selectPlayer}
-              editMode={this.props.editMode}
-              updatePlayer={this.props.updatePlayer}
-              deletePlayer={this.props.deletePlayer}
-            />
-          </div>
-        ))}
+        {timeRanker(this.props.teamStore.players).map(
+          ({ rank, player }, idx) => (
+            <div key={`player-${idx}`} className={"playerRow"}>
+              <PlayerRow
+                id={idx}
+                rank={rank}
+                player={player}
+                editMode={this.props.editMode}
+                deletePlayer={() => this.props.teamStore.deletePlayer(idx)}
+              />
+            </div>
+          )
+        )}
         <div
           className={cx("playerInput", {
             hidden: this.state.showAdd
@@ -56,4 +60,4 @@ class PlayersTable extends React.Component {
   }
 }
 
-export default PlayersTable;
+export default observer(PlayersTable);
