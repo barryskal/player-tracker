@@ -34,9 +34,9 @@ storiesOf("Player App", module)
   .add("time display", () => (
     <TimeDisplay seconds={number("Total seconds", 600)} rank={0} />
   ))
-  .add("player row", () => <PlayerRow name="Barry" seconds={600} rank={0} />)
-  .add("players table", () => <PlayersTable players={players} />)
-  .add("App", () => <App />)
+  .add("player row", () => <PlayerRow player={players[0]} rank={0} />)
+  .add("players table", () => <PlayersTable teamStore={{ players }} />)
+  .add("App", () => <App teamStore={{ players }} timerStore={{}} />)
   .add("Confirm Modal", () => (
     <ConfirmModal message="Are you sure you want to reset the timer?" />
   ));
